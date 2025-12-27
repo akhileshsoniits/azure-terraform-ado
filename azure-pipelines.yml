@@ -19,19 +19,19 @@ steps:
     provider: 'azurerm'
     command: 'init'
     workingDirectory: '$(TF_ROOT)'
-    backendServiceArm: 'azure-oidc-sc'
+    backendServiceArm: 'azure_assignment'
 
 - task: TerraformTaskV4@4
   inputs:
     provider: 'azurerm'
     command: 'plan'
     workingDirectory: '$(TF_ROOT)'
-    environmentServiceNameAzureRM: 'azure-oidc-sc'
+    environmentServiceNameAzureRM: 'azure_assignment'
 
 - task: TerraformTaskV4@4
   inputs:
     provider: 'azurerm'
     command: 'apply'
     workingDirectory: '$(TF_ROOT)'
-    environmentServiceNameAzureRM: 'azure-oidc-sc'
+    environmentServiceNameAzureRM: 'azure_assignment'
     commandOptions: '-auto-approve'
